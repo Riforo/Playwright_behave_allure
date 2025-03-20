@@ -4,15 +4,19 @@ from pages.base_page import BasePage
 
 
 class LoginPage(BasePage):
+    __URL_PAGE = "https://test.ru/"
+    __LOGIN_FILD = "Логин"
+    __PASSWORD_FILD = "Пароль"
+    __BUTTON_LOGIN = "Войти"
     
     def __init__(self, page: Page):
         super().__init__(page)
-        self.username = page.get_by_placeholder("Логин")
-        self.password = page.get_by_placeholder("Пароль")
-        self.login_button = page.get_by_role('button', name='Войти')
+        self.username = page.get_by_placeholder(self.__LOGIN_FILD)
+        self.password = page.get_by_placeholder(self.__PASSWORD_FILD)
+        self.login_button = page.get_by_role('button', name=self.__BUTTON_LOGIN)
 
     def navigate(self):
-        self.page.goto("https://test.com/")
+        self.page.goto(self.__URL_PAGE)
         self.page.wait_for_load_state("domcontentloaded")
 
     def fill_username(self, text):

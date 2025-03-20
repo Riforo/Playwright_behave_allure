@@ -13,7 +13,7 @@ def set_login(context, fild: str, value: str):
     login_page = LoginPage(context.page)
     login_page.fill_form_field(fild, value)
 
-@when("Я нажимаю кнопку {} на странице авторизации")
+@when("Я нажимаю кнопку {button} на странице авторизации")
 def clic_button(context, button: str):
     login_page = LoginPage(context.page)
     login_page.clic_button(button)
